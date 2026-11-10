@@ -1,0 +1,220 @@
+<!doctype html>
+<!--
+  SGEDF – Sistema de Gestión de Evidencias Digitales Forenses
+  Componente front-end · Laboratorio de Informática Forense
+  Autor: Jesús Alberto Ruiz Gómez · SENA ADSO · Evidencia GA7-220501096-AA4-EV03
+
+  Estructura: este documento define únicamente el "esqueleto" de la aplicación
+  (inicio de sesión, menú, barra superior, ventana modal y zonas de notificación
+  e impresión). El contenido de cada módulo lo generan las vistas en js/vistas/.
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema de Gestión de Evidencias Digitales Forenses del Laboratorio de Informática Forense"
+    />
+    <meta name="theme-color" content="#0b1e3d" />
+    <title>SGEDF – Sistema de Gestión de Evidencias Digitales Forenses</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+    <!-- Hojas de estilo en orden de especificidad: variables → base → estructura → componentes → impresión -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/impresion.css" />
+  </head>
+
+  <body>
+    <a class="enlace-salto" href="#contenido">Saltar al contenido principal</a>
+
+    <!-- ===================== PANTALLA DE INICIO DE SESIÓN ===================== -->
+    <main id="pantalla-login" class="pantalla-login">
+      <section class="login-caja" aria-labelledby="login-titulo">
+        <div class="login-logo">
+          <img
+            src="assets/img/logo-laboratorio.jpg"
+            alt="Escudo del Laboratorio de Informática Forense"
+            width="64"
+            height="64"
+          />
+          <div>
+            <h1 id="login-titulo" class="login-titulo">SGEDF</h1>
+            <p class="login-sub">Sistema de Gestión de Evidencias Digitales Forenses</p>
+          </div>
+        </div>
+
+        <form id="form-login" novalidate>
+          <div class="campo">
+            <label for="login-usuario">Usuario</label>
+            <input
+              id="login-usuario"
+              name="usuario"
+              type="text"
+              autocomplete="username"
+              placeholder="Identificación o correo"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="login-contrasena">Contraseña</label>
+            <input
+              id="login-contrasena"
+              name="contrasena"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Contraseña"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="login-rol">Rol de ingreso</label>
+            <select id="login-rol" name="rol">
+              <option value="perito">Perito en Informática Forense</option>
+              <option value="admin">Responsable del Laboratorio (Admin)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primario btn-bloque">Iniciar sesión</button>
+          <p id="login-mensaje" class="alerta alerta-error" role="alert" hidden></p>
+        </form>
+
+        <p class="login-pie">Laboratorio de Informática Forense · Acceso restringido</p>
+      </section>
+    </main>
+
+    <!-- ===================== APLICACIÓN (requiere sesión) ===================== -->
+    <div id="aplicacion" class="aplicacion" hidden>
+      <aside id="barra-lateral" class="barra-lateral" aria-label="Menú principal">
+        <div class="barra-lateral-encabezado">
+          <img src="assets/img/logo-laboratorio.jpg" alt="" width="42" height="42" />
+          <div>
+            <div class="marca-nombre">SGEDF</div>
+            <div class="marca-sub">Lab. Informática Forense</div>
+          </div>
+        </div>
+        <div class="barra-lateral-usuario">
+          <div id="usuario-nombre" class="usuario-nombre">—</div>
+          <div id="usuario-rol" class="usuario-rol">—</div>
+        </div>
+        <nav id="menu-navegacion" class="menu-navegacion" aria-label="Módulos">
+          <!-- Opciones generadas por el enrutador según el rol activo -->
+        </nav>
+        <div id="version-sistema" class="barra-lateral-pie">v1.0.0</div>
+      </aside>
+
+      <!-- Capa oscura detrás del menú en dispositivos móviles -->
+      <div id="capa-menu" class="capa-menu" hidden></div>
+
+      <div class="principal">
+        <header class="barra-superior">
+          <button
+            id="btn-menu"
+            class="btn-menu"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="barra-lateral"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <h2 id="titulo-pantalla" class="titulo-pantalla">Dashboard</h2>
+          <div class="acciones-superiores">
+            <span id="insignia-rol" class="insignia insignia-azul">Perito</span>
+            <button id="btn-cerrar-sesion" class="btn" type="button" aria-label="Cerrar sesión">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+              <span class="texto-cerrar-sesion">Cerrar sesión</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Contenedor donde el enrutador monta la vista activa -->
+        <main id="contenido" class="contenido" tabindex="-1"></main>
+      </div>
+    </div>
+
+    <!-- ===================== VENTANA MODAL REUTILIZABLE ===================== -->
+    <div id="modal-capa" class="modal-capa" hidden>
+      <div
+        id="modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo"
+        aria-describedby="modal-subtitulo"
+      >
+        <header class="modal-encabezado">
+          <div>
+            <h2 id="modal-titulo" class="tarjeta-titulo"></h2>
+            <p id="modal-subtitulo" class="tarjeta-sub"></p>
+          </div>
+          <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar ventana">
+            ✕
+          </button>
+        </header>
+        <div id="modal-cuerpo"></div>
+        <footer id="modal-acciones" class="modal-acciones"></footer>
+      </div>
+    </div>
+
+    <!-- Notificaciones emergentes anunciadas a lectores de pantalla -->
+    <div id="notificaciones" class="notificaciones" aria-live="polite"></div>
+
+    <!-- Documento que se envía a la impresora / PDF (ver css/impresion.css) -->
+    <div id="zona-impresion" class="zona-impresion"></div>
+
+    <!-- ===================== SCRIPTS (el orden importa) ===================== -->
+    <!-- 1. Configuración y utilidades -->
+    <script src="js/config.js"></script>
+    <script src="js/utilidades/sha256.js"></script>
+    <script src="js/utilidades/formato.js"></script>
+    <script src="js/utilidades/validadores.js"></script>
+    <!-- 2. Modelos de dominio (diagrama de clases) -->
+    <script src="js/modelos/usuario.js"></script>
+    <script src="js/modelos/orden-trabajo.js"></script>
+    <script src="js/modelos/registro-auditoria.js"></script>
+    <!-- 3. Servicios (lógica de negocio y persistencia) -->
+    <script src="js/servicios/almacenamiento.js"></script>
+    <script src="js/servicios/auditoria.js"></script>
+    <script src="js/servicios/usuarios.js"></script>
+    <script src="js/servicios/autenticacion.js"></script>
+    <script src="js/servicios/ordenes.js"></script>
+    <script src="js/servicios/reportes.js"></script>
+    <script src="js/servicios/datos-semilla.js"></script>
+    <!-- 4. Vistas (presentación) -->
+    <script src="js/vistas/componentes-ui.js"></script>
+    <script src="js/vistas/vista-login.js"></script>
+    <script src="js/vistas/vista-dashboard.js"></script>
+    <script src="js/vistas/vista-detalle-orden.js"></script>
+    <script src="js/vistas/vista-registro-orden.js"></script>
+    <script src="js/vistas/vista-consulta.js"></script>
+    <script src="js/vistas/vista-reportes.js"></script>
+    <script src="js/vistas/vista-usuarios.js"></script>
+    <script src="js/vistas/vista-auditoria.js"></script>
+    <!-- 5. Enrutador y arranque -->
+    <script src="js/enrutador.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+/* ==========================================================================
+   SGEDF · Estilos base: reinicio, tipografía y accesibilidad
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* El atributo hidden siempre oculta, aunque la clase defina otro display. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--fuente-base);
+  font-size: var(--tamano-base);
+  line-height: 1.45;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+/* Foco visible para navegación con teclado (WCAG 2.4.7). */
+:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 2px;
+}
+
+/* Enlace para saltar directamente al contenido (WCAG 2.4.1). */
+.enlace-salto {
+  position: absolute;
+  left: var(--espacio-2);
+  top: -48px;
+  z-index: 300;
+  padding: var(--espacio-2) var(--espacio-3);
+  background: var(--azul-800);
+  color: var(--dorado-400);
+  border-radius: var(--radio-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--transicion);
+}
+
+.enlace-salto:focus {
+  top: var(--espacio-2);
+}
+
+/* Texto disponible solo para lectores de pantalla. */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respeta la preferencia del usuario de reducir animaciones. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
