@@ -1,0 +1,44 @@
+/* ==========================================================================
+   SGEDF · Estilos de impresión
+   Al imprimir (o guardar como PDF desde el navegador) solo se muestra el
+   documento del reporte ubicado en #zona-impresion.
+   ========================================================================== */
+
+.zona-impresion {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 18mm 15mm;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  body > *:not(#zona-impresion) {
+    display: none !important;
+  }
+
+  .zona-impresion {
+    display: block !important;
+  }
+
+  .zona-impresion .reporte-documento {
+    padding: 0;
+    border: none;
+  }
+
+  .zona-impresion .tabla th {
+    background: #e8f0f9 !important;
+    color: #0b1e3d !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .zona-impresion .tabla tr {
+    page-break-inside: avoid;
+  }
+}
