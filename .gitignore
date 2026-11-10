@@ -1,0 +1,20 @@
+# Dependencias de desarrollo (se reinstalan con: npm install)
+node_modules/
+
+# Registros y temporales
+npm-debug.log*
+*.log
+.tmp/
+
+# Archivos del sistema operativo y del editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Entregables empaquetados
+*.zip
+
+# Variables de entorno (nunca versionar credenciales)
+.env
