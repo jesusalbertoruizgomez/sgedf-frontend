@@ -1,0 +1,69 @@
+/* ==========================================================================
+   SGEDF · Variables de diseño (design tokens)
+   Paleta institucional: Azul marino · Dorado · Blanco azulado.
+   Los contrastes de texto cumplen WCAG 2.1 nivel AA (relación mínima 4,5:1).
+   ========================================================================== */
+
+:root {
+  /* Azul marino */
+  --azul-900: #071528;
+  --azul-800: #0b1e3d;
+  --azul-700: #102b56;
+  --azul-600: #16386e;
+  --azul-400: #2a5fa8;
+  --azul-100: #c0d7ee;
+  --azul-50: #e8f0f9;
+
+  /* Dorado */
+  --dorado-700: #7a5614;
+  --dorado-600: #b07d1a;
+  --dorado-500: #c9a84c;
+  --dorado-400: #d9bc74;
+  --dorado-200: #edd89b;
+  --dorado-50: #fdf7e8;
+
+  /* Blanco azulado */
+  --hielo-700: #3d5470;
+  --hielo-200: #c8dcf0;
+  --hielo-100: #dce9f5;
+  --hielo-50: #eef3fa;
+  --hielo-blanco: #f7fafe;
+
+  /* Estados semánticos */
+  --rojo-50: #fdf0f0;
+  --rojo-600: #a12a2a;
+  --verde-50: #eef7ee;
+  --verde-600: #2a6e2e;
+  --gris-50: #f1f3f6;
+  --gris-600: #4b5563;
+
+  /* Roles de color */
+  --color-fondo: var(--hielo-50);
+  --color-superficie: var(--hielo-blanco);
+  --color-borde: var(--hielo-200);
+  --color-texto: var(--azul-800);
+  --color-texto-suave: var(--hielo-700);
+  --color-foco: var(--dorado-500);
+
+  /* Tipografía */
+  --fuente-base: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', sans-serif;
+  --tamano-base: 14px;
+
+  /* Espaciado, bordes y sombras */
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 20px;
+  --espacio-6: 24px;
+  --radio-sm: 8px;
+  --radio-md: 12px;
+  --radio-lg: 16px;
+  --sombra-modal: 0 16px 48px rgba(0, 0, 0, 0.45);
+  --anillo-foco: 0 0 0 3px rgba(201, 168, 76, 0.35);
+
+  /* Dimensiones de la estructura */
+  --ancho-barra-lateral: 236px;
+  --alto-barra-superior: 56px;
+  --transicion: 0.15s ease;
+}
