@@ -3,29 +3,35 @@
 ## 1. Modelo de ramas (GitFlow simplificado)
 
 ```
-main      ●──────────────────────────────────────────────────────●  v1.0.0
-           \                                                    /
-develop     ●───●───────●───────●───────●───────●───────●───────●
-                 \     / \     / \     / \     / \     / \     /
-feature/*         ●───●   ●───●   ●───●   ●───●   ●───●   ●───●
+main      ●──────────────────────────────────────────────────●  v1.0.0 ──────●  v1.0.1
+           \                                                /              /
+develop     ●───●───────●───────●───────●───────●───────●───●─────●───────●
+                 \     / \     / \     / \     / \     /       \     /
+feature/*         ●───●   ●───●   ●───●   ●───●   ●───●         ●───●
 ```
 
-| Rama                             | Propósito                                           |
-| -------------------------------- | --------------------------------------------------- |
-| `main`                           | Versiones estables y entregables (etiquetadas)      |
-| `develop`                        | Integración de funcionalidades terminadas           |
-| `feature/estructura-base`        | HTML de la SPA, recursos gráficos y hojas de estilo |
-| `feature/nucleo`                 | Configuración, utilidades, modelos y persistencia   |
-| `feature/autenticacion`          | Inicio de sesión, roles, enrutador y arranque       |
-| `feature/hu-01-registro-ordenes` | Registro y actualización de órdenes de trabajo      |
-| `feature/hu-02-consulta-ordenes` | Consulta, búsqueda y detalle de órdenes             |
-| `feature/reportes`               | Reportes con vista previa e impresión a PDF         |
-| `feature/hu-03-gestion-usuarios` | Gestión de usuarios y bitácora de auditoría         |
-| `feature/pruebas`                | Pruebas unitarias                                   |
-| `feature/documentacion`          | README y documentación técnica                      |
+| Rama                                  | Propósito                                                       |
+| ------------------------------------- | --------------------------------------------------------------- |
+| `main`                                | Versiones estables y entregables (etiquetadas)                  |
+| `develop`                             | Integración de funcionalidades terminadas                       |
+| `feature/estructura-base`             | HTML de la SPA, recursos gráficos y hojas de estilo             |
+| `feature/nucleo`                      | Configuración, utilidades, modelos y persistencia               |
+| `feature/autenticacion`               | Inicio de sesión, roles, enrutador y arranque                   |
+| `feature/hu-01-registro-ordenes`      | Registro y actualización de órdenes de trabajo                  |
+| `feature/hu-02-consulta-ordenes`      | Consulta, búsqueda y detalle de órdenes                         |
+| `feature/reportes`                    | Reportes con vista previa e impresión a PDF                     |
+| `feature/hu-03-gestion-usuarios`      | Gestión de usuarios y bitácora de auditoría                     |
+| `feature/pruebas`                     | Pruebas unitarias                                               |
+| `feature/documentacion`               | README y documentación técnica                                  |
+| `feature/datos-iniciales-sin-ordenes` | Inicio del sistema sin órdenes de trabajo (indicadores en cero) |
 
 Cada rama `feature/*` se integra a `develop` con `git merge --no-ff`, y `develop` se integra
 a `main` al publicar una versión.
+
+| Etiqueta | Contenido                                                                   |
+| -------- | --------------------------------------------------------------------------- |
+| `v1.0.0` | Primera versión completa del componente front-end                           |
+| `v1.0.1` | Versión entregada: el sistema inicia sin órdenes de trabajo de demostración |
 
 ## 2. Convención de mensajes (Conventional Commits)
 
@@ -42,7 +48,7 @@ test: pruebas unitarias de utilidades, modelos y servicios
 git log --oneline --graph --all     # Historial con ramas
 git branch -a                       # Ramas del repositorio
 git tag -n                          # Versiones etiquetadas
-git show v1.0.0                     # Detalle de la versión entregada
+git show v1.0.1                     # Detalle de la versión entregada
 ```
 
 ## 4. Publicación en GitHub
