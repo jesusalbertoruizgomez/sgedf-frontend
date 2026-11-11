@@ -72,6 +72,6 @@ modelo de datos del proyecto.
 ```bash
 npm run lint           # ESLint: 0 errores, 0 advertencias
 npm run format:check   # Prettier: todos los archivos con el formato acordado
-npm test               # 38 pruebas unitarias aprobadas
+npm test               # 42 pruebas unitarias aprobadas
 npm run verificar      # Las tres verificaciones en un solo paso
 ```

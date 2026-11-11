@@ -86,8 +86,8 @@
     NOMBRE_SISTEMA: 'SGEDF',
     NOMBRE_COMPLETO: 'Sistema de Gestión de Evidencias Digitales Forenses',
     LABORATORIO: 'Laboratorio de Informática Forense',
-    VERSION: '1.0.0',
-    VERSION_DATOS: 1,
+    VERSION: '1.0.1',
+    VERSION_DATOS: 2,
 
     /** Política de seguridad de la autenticación. */
     MAX_INTENTOS_FALLIDOS: 3,
