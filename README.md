@@ -9,7 +9,7 @@ Componente front-end del proyecto formativo SGEDF, desarrollado como evidencia
 | ---------- | --------------------------------------- |
 | Aprendiz   | Jesús Alberto Ruiz Gómez                |
 | Ficha      | 3186703                                 |
-| Instructor | Julio Cesar Velosa Castañeda            |
+| Instructor | Alexander Atehortúa                     |
 | Versión    | 1.0.1                                   |
 | Tipo       | Aplicación web de una sola página (SPA) |
 
