@@ -3,6 +3,17 @@
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y
 [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.0.1] – 2026-11-10
+
+### Cambiado
+
+- El sistema inicia sin órdenes de trabajo: los indicadores del tablero (asignadas,
+  vigentes, en prórroga y resueltas) aparecen en cero hasta que el perito registre la
+  primera orden. Solo se crean las cuentas de usuario iniciales.
+- La versión de datos pasa a 2: los navegadores con datos de la versión anterior se
+  reinician automáticamente para retirar las órdenes de demostración.
+- Las pruebas unitarias registran sus propias órdenes (42 pruebas).
+
 ## [1.0.0] – 2026-11-10
 
 ### Agregado

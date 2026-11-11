@@ -10,7 +10,7 @@ Componente front-end del proyecto formativo SGEDF, desarrollado como evidencia
 | Aprendiz   | Jesús Alberto Ruiz Gómez                |
 | Ficha      | 3186703                                 |
 | Instructor | Julio Cesar Velosa Castañeda            |
-| Versión    | 1.0.0                                   |
+| Versión    | 1.0.1                                   |
 | Tipo       | Aplicación web de una sola página (SPA) |
 
 ---
@@ -100,12 +100,14 @@ npm start          # http://localhost:3000
 
 ### Credenciales de demostración
 
-Al abrir la aplicación por primera vez se cargan datos ficticios de prueba:
+Al abrir la aplicación por primera vez se crean únicamente las cuentas de usuario. El
+sistema **inicia sin órdenes de trabajo**: todos los indicadores del tablero aparecen en
+cero hasta que el perito registre la primera orden.
 
-| Usuario (cédula) | Contraseña    | Roles                  | Órdenes asignadas |
-| ---------------- | ------------- | ---------------------- | ----------------- |
-| `1100503738`     | `Forense2026` | Perito y Administrador | 2                 |
-| `1085123456`     | `Perito2026`  | Perito                 | 1                 |
+| Usuario (cédula) | Contraseña    | Roles                  |
+| ---------------- | ------------- | ---------------------- |
+| `1100503738`     | `Forense2026` | Perito y Administrador |
+| `1085123456`     | `Perito2026`  | Perito                 |
 
 También se puede ingresar con el correo registrado. Para reiniciar los datos, borre los
 datos del sitio en el navegador (Herramientas de desarrollo → Aplicación → Almacenamiento).
@@ -115,7 +117,7 @@ datos del sitio en el navegador (Herramientas de desarrollo → Aplicación → 
 | Comando             | Acción                                             |
 | ------------------- | -------------------------------------------------- |
 | `npm start`         | Inicia el servidor de desarrollo en el puerto 3000 |
-| `npm test`          | Ejecuta las 38 pruebas unitarias                   |
+| `npm test`          | Ejecuta las 42 pruebas unitarias                   |
 | `npm run lint`      | Analiza el código con ESLint                       |
 | `npm run format`    | Aplica el formato de Prettier                      |
 | `npm run verificar` | Lint + verificación de formato + pruebas           |
@@ -144,5 +146,5 @@ cierre con Escape, contraste de color AA y respeto de `prefers-reduced-motion`.
 ## 8. Versionamiento
 
 El proyecto se versiona con Git siguiendo **Conventional Commits** y ramas
-`main` / `develop` / `feature/*`. La versión entregada está etiquetada como `v1.0.0`.
+`main` / `develop` / `feature/*`. La versión entregada está etiquetada como `v1.0.1`.
 Ver [`docs/GUIA_VERSIONAMIENTO.md`](docs/GUIA_VERSIONAMIENTO.md).
