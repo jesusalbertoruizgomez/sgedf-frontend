@@ -1,6 +1,6 @@
 {
   "name": "sgedf-frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Componente front-end del Sistema de Gestión de Evidencias Digitales Forenses (SGEDF) - Laboratorio de Informática Forense",
   "private": true,
   "author": "Jesús Alberto Ruiz Gómez",
